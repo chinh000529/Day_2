@@ -52,5 +52,4 @@ function calcMinPrice(price, stepPrices, rivalryPrice) {
   return price;
 }
 
-console.log(calcMinPrice(1081, stepPrices1, 1200));
-console.log(calcMinPrice(1081, stepPrices1, 1200));
+console.log(calcMinPrice(120, stepPrices1, 1200));
