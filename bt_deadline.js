@@ -1,19 +1,15 @@
-const calendar1 = [
-  false, // tương đương với ngày 0
-  false, // tương đương với ngày 1
-  true, // tương đương với ngày 2
-  true, // tương đương với ngày 3
-  false, // tương đương với ngày 4
-  false, // tương đương với ngày 5
-  true, // tương đương với ngày 6
-  false, // tương đương với ngày 7
-];
+const calendar1 = [false, false, true, true, false, false, true, false, false, true];
 
 function calcDeadline(manday, calendar) {
-  const arr = calendar.filter((c) => {
-    if (c === true) return c;
-  });
-  return manday + arr.length;
+    for (let i = 0; i < calendar.length; i++) {
+        if (!calendar[i]) {
+            manday--;
+            if (manday === 0) {
+                return i + 1
+            }
+        }
+    }
+    return false;
 }
 
-console.log(calcDeadline(5, calendar1));
+console.log(calcDeadline(7, calendar1));
