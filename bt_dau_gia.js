@@ -1,4 +1,4 @@
-const stepPrices1 = {
+const stepPrices = {
   100: 40,
   300: 60,
   500: 80,
@@ -7,23 +7,23 @@ const stepPrices1 = {
 };
 
 function calcMinPrice(price, stepPrices, rivalryPrice) {
-  const keys = Object.keys(stepPrices);
-  const values = Object.values(stepPrices);
+  const arrRangePrices = Object.keys(stepPrices);
+  const arrStepPrices = Object.values(stepPrices);
   while (price <= rivalryPrice) {
-    for (let i = 0; i < keys.length; i++) {
+    for (let i = 0; i < arrRangePrices.length; i++) {
       if (
-        price <= +keys[i] ||
-        (price >= +keys[i] && price < +keys[i + 1]) ||
-        price >= +keys[keys.length - 1]
+        price <= +arrRangePrices[i] ||
+        (price >= +arrRangePrices[i] && price < +arrRangePrices[i + 1]) ||
+        price >= +arrRangePrices[arrRangePrices.length - 1]
       ) {
-        if (price + values[i] <= rivalryPrice) {
-          price += values[i];
+        if (price + arrStepPrices[i] <= rivalryPrice) {
+          price += arrStepPrices[i];
           break;
-        } else return price + values[i];
+        } else return price + arrStepPrices[i];
       }
     }
   }
   return price;
 }
 
-console.log(calcMinPrice(210, stepPrices1, 1200));
+console.log(calcMinPrice(210, stepPrices, 1200));
