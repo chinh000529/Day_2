@@ -1,15 +1,26 @@
-const calendar1 = [false, false, true, true, false, false, true, false, false, true];
+const calendar = [
+  false,
+  false,
+  true,
+  true,
+  false,
+  false,
+  true,
+  false,
+  false,
+  true,
+];
 
 function calcDeadline(manday, calendar) {
-    for (let i = 0; i < calendar.length; i++) {
-        if (!calendar[i]) {
-            manday--;
-            if (manday === 0) {
-                return i + 1
-            }
-        }
+  for (let i = 0; i < calendar.length; i++) {
+    if (!calendar[i]) {
+      manday--;
+      if (manday === 0) {
+        return i + 1;
+      }
     }
-    return false;
+  }
+  return false;
 }
 
-console.log(calcDeadline(7, calendar1));
+console.log(calcDeadline(7, calendar));
